@@ -51,7 +51,8 @@ const EmployeeGrid = forwardRef(({ setSelectedEmployee }, ref) => {
       );
       if (!confirmDelete) return;
 
-      await axios.delete(`cd ../employee-management-server/employees/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/employees/${id}`);
+
       toast.success("Employee deleted");
       fetchEmployees();
     } catch (err) {
