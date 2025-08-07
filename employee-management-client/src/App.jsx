@@ -19,10 +19,10 @@ function App() {
   const handleSave = async (employee) => {
     try {
       if (employee.id) {
-        await axios.put(`http://localhost:5000/employees/${employee.id}`, employee);
+        await axios.put(`${process.env.REACT_APP_API_URL}/employees/${employee.id}`, employee);
         toast.success("Employee updated");
       } else {
-        await axios.post(`http://localhost:5000/employees`, employee);
+        await axios.post(`${process.env.REACT_APP_API_URL}/employees`, employee);
         toast.success("Employee created");
       }
 

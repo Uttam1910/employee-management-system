@@ -2,6 +2,15 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import employeeRoutes from './routes/employeeRoutes.js';
+import pool from './db.js';
+
+pool.query('SELECT NOW()')
+  .then(res => {
+    console.log('✅ DB Connected:', res.rows[0]);
+  })
+  .catch(err => {
+    console.error('❌ DB Connection Error:', err.message);
+  });
 
 dotenv.config();
 const app = express();
