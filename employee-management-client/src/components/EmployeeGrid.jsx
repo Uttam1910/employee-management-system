@@ -20,7 +20,8 @@ const EmployeeGrid = forwardRef(({ setSelectedEmployee }, ref) => {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/employees");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/employees`);
+
 
       const mappedData = res.data.map((emp) => ({
         id: emp.id,
